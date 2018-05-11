@@ -1,12 +1,26 @@
 import React, { Component } from 'react';
 import './App.css';
+import {WhoWin} from "./whoWin";
 
 const SQUARE_ON_BOARD = 9;
 let elems =[];
+// if user want play with x
+let value = 'x';
+// if user want play with 0
+// let value = '0';
+let winCombination = [
+    [value,value,value,0,0,0,0,0,0],
+    [0,0,0,value,value,value,0,0,0],
+    [0,0,0,0,0,0,value,value,value],
+    [value,0,0,0,value,0,0,0,value],
+    [0,0,value,0,value,0,value,0,0],
+    [0,value,0,0,value,0,0,value,0],
+    [value,0,0,value,0,0,value,0,0],
+    [0,0,value,0,0,value,0,0,value]
+];
 for(let i=0; i<SQUARE_ON_BOARD; i++) {
     elems.push(null);
 }
-
 
 class Square extends Component {
     constructor(props) {
@@ -14,12 +28,22 @@ class Square extends Component {
         this.state = {value:null};
     };
 
+    checkWinner = (winCombination,elems) => {
+       for(let i=0; i<elems.length; i++) {
+           let current = elems[i];
+           for(let j=0; j<winCombination.length; j++) {
+               }
+           }
+
+
+    };
+
     setValue = () => {
-        this.setState({value:'x'});
+        this.setState({value:value});
         for(let i=0; i<elems.length; i++) {
-            elems[this.props.dataKey] = 'x';
+            elems[this.props.dataKey] = value;
         }
-        console.log(elems);
+        this.checkWinner(winCombination,elems);
     };
 
     render() {
