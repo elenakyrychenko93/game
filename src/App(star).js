@@ -53,6 +53,8 @@ class Square extends Component {
 
     checkWinner = (elems) => {
         let matrixArray = this.matrix(3, 3, elems);
+        // this.horizontalCheck(matrixArray);
+
         let direction = {
             0 : [-1,-1],
             1 : [-1,0],
@@ -66,9 +68,10 @@ class Square extends Component {
 
         for (let y = 0; y < matrixArray.length; y++) {
             for (let x = 0; x < matrixArray[y].length; x++) {
-                if (matrixArray[y][x] === value) {
+                if (matrixArray[y][x] == value) {
                     for (let n in direction) {
                         if (this.checkDirection(y, x, direction[n], 2, matrixArray, value)) {
+
                             console.log(`WIN - ${value}`);
                             break;
                         }
