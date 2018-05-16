@@ -1,12 +1,11 @@
-// import React, { Component } from 'react';
-// import './App.css';
-// import {Square} from './Square';
-// import {elems,value} from './App';
+import React, {Component} from 'react';
+import {elems,value} from './App';
+// import {WhoWin} from "./whoWin";
 
-
-export class WhoWin extends Component {
+export class Square extends Component {
     constructor(props) {
         super(props);
+        this.state = {value: null};
     };
 
     matrix = (rows, cols, defaultValue) => {
@@ -68,6 +67,22 @@ export class WhoWin extends Component {
             }
         }
     };
+
+    setValue = () => {
+        if(this.state.value === "x" || this.state.value === "0" || this.state.value === "o") {
+            alert('slepoi chto-li? zanyato');
+        } else {
+            this.setState({value: value});
+            for (let i = 0; i < elems.length; i++) {
+                elems[this.props.dataKey] = value;
+            }
+            this.checkWinner(elems);
+        }
+    };
+
+    render() {
+        return (
+            <div className='square' onClick={this.setValue}>{this.state.value}</div>
+        )
+    }
 }
-
-
