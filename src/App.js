@@ -17,6 +17,10 @@ class App extends Component {
     constructor(props) {
         super(props);
     };
+    componentDidMount() {
+        const socket = io();
+        console.log(socket);
+    }
 
     render() {
         return (
